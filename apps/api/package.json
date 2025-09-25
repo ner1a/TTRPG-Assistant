@@ -16,10 +16,13 @@
   },
   "dependencies": {
     "@nestjs/common": "^11.0.0",
+    "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.0.0",
     "@nestjs/mongoose": "^11.0.3",
     "@nestjs/platform-express": "^11.0.0",
+    "@nestjs/throttler": "^6.4.0",
     "@repo/api": "workspace:*",
+    "helmet": "^8.1.0",
     "mongoose": "^8.18.2",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
