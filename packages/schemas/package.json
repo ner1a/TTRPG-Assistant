@@ -1,11 +1,10 @@
 {
-  "name": "@repo/types",
+  "name": "@repo/schemas",
   "version": "0.0.1",
   "private": true,
   "type": "module",
   "main": "index.ts",
-  "types": "index.ts",
-  "files": [
-    "index.ts"
-  ]
+  "exports": {
+    "./*": "./src/*.ts"
+  }
 }

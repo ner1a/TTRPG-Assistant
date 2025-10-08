@@ -23,6 +23,7 @@
     "@nestjs/platform-express": "^11.0.0",
     "@nestjs/throttler": "^6.4.0",
     "@repo/api": "workspace:*",
+    "@repo/types": "workspace:*",
     "helmet": "^8.1.0",
     "mongoose": "^8.18.2",
     "reflect-metadata": "^0.2.0",
