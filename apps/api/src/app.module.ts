@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -14,12 +15,15 @@ import { UsersModule } from './users/users.module';
       inject: [ConfigService],
       useFactory: async (config: ConfigService) => ({
         uri: config.get<string>('MONGODB_URI'),
+        dbName: 'ttrpgassistant'
       }),
     }),
     
     ThrottlerModule.forRoot([{ ttl: 60_000, limit: 120 }]),
     
-    UsersModule
+    UsersModule,
+    
+    AuthModule
   ],
 })
 export class AppModule {}
