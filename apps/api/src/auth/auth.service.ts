@@ -7,7 +7,6 @@ import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
-
     constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
     async register(createUserDto: CreateUserDto): Promise<User> {
