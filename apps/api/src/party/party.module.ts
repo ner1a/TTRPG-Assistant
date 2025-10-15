@@ -3,6 +3,7 @@ import { PartyController } from './party.controller';
 import { PartyService } from './party.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { PartySchema } from './partySchema';
+import { JwtStrategy } from '../auth/jtw.strategy';
 
 @Module({
   imports: [
@@ -14,6 +15,6 @@ import { PartySchema } from './partySchema';
     ])
   ],
   controllers: [PartyController],
-  providers: [PartyService]
+  providers: [PartyService, JwtStrategy]
 })
 export class PartyModule {}

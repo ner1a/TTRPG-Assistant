@@ -1,9 +1,31 @@
-import * as mongoose from "mongoose";
+import { Schema, SchemaFactory, Prop } from '@nestjs/mongoose';
+import * as mongoose from 'mongoose';
 
-export const PartySchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  members: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }],
-  description: { type: String },
-  createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now }
-});
+@Schema({ timestamps: true })
+export class Party {
+  _id: mongoose.Schema.Types.ObjectId;
+
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true })
+  ownerId: mongoose.Schema.Types.ObjectId;
+
+  @Prop({ required: true })
+  name: string;
+
+  @Prop({
+    type: [{ type: mongoose.Schema.Types.ObjectId }],
+    ref: 'Character',
+    default: null,
+  })
+  characters: mongoose.Schema.Types.ObjectId[] | null;
+
+  @Prop()
+  description: string;
+
+  @Prop({ type: Date, default: Date.now, required: true })
+  createdAt: Date;
+
+  @Prop({ type: Date, default: Date.now, required: true })
+  updatedAt: Date;
+}
+
+export const PartySchema = SchemaFactory.createForClass(Party);

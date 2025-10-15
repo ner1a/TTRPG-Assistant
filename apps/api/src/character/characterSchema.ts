@@ -1,15 +1,40 @@
-import * as mongoose from "mongoose";
+import { Schema, SchemaFactory, Prop } from '@nestjs/mongoose';
+import * as mongoose from 'mongoose';
 
-export const CharacterSchema = new mongoose.Schema({
-  ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  name: { type: String, required: true },
-  class: { type: String },
-  level: { type: Number, default: 1 },
-  background: { type: String },
-  createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now },
+@Schema({ timestamps: true })
+export class Character {
+  _id: mongoose.Schema.Types.ObjectId;
 
-  // DND5E specific fields
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true })
+  ownerId: mongoose.Types.ObjectId;
+
+  @Prop({ required: true })
+  name: string;
+
+  @Prop()
+  class: string;
+
+  @Prop({ default: 1 })
+  level: number;
+
+  @Prop()
+  background: string;
+
+  @Prop({required: true, default:'private'})
+  visibility: 'private' | 'party' | 'public';
+
+  @Prop({ type: Date, default: Date.now, required: true })
+  createdAt: Date;
+
+  @Prop({ type: Date, default: Date.now, required: true })
+  updatedAt: Date;
+}
+
+export const CharacterSchema = SchemaFactory.createForClass(Character);
+
+// LET CREATE REALM/SYSTEM SCHEMAS AND USE REALM/SYSTEM ID'S
+
+/* // DND5E specific fields
   dndLevel: { type: Number, default: 1 },
   dndRace: { type: String },
   dndAlignment: { type: String },
@@ -30,5 +55,4 @@ export const CharacterSchema = new mongoose.Schema({
   dhFinesse: { type: Number, default: 0 },
   dhInstinct: { type: Number, default: 0 },
   dhPresence: { type: Number, default: 0 },
-  dhKnowledge: { type: Number, default: 0 },
-});
+  dhKnowledge: { type: Number, default: 0 }, */

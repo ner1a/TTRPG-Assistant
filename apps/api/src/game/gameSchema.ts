@@ -1,13 +1,33 @@
-import * as mongoose from "mongoose";
+import { Schema, SchemaFactory, Prop } from '@nestjs/mongoose';
+import * as mongoose from 'mongoose';
 
-export const GameSchema = new mongoose.Schema({
-  ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  visibility: { type: String, enum: ["private", "party", "public"], required: true },
-  system: { type: String, enum: ["Generic", "DND5E", "Daggerheart", "PF2"], required: true },
-  title: { type: String, required: true },
-  description: { type: String },
-  partyId: { type: mongoose.Schema.Types.ObjectId, ref: 'Party' },
-  characters: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Character' }],
-  createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now }
-});
+@Schema({ timestamps: true })
+export class Game {
+  _id: mongoose.Schema.Types.ObjectId;
+
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true })
+  ownerId: mongoose.Types.ObjectId;
+
+  @Prop({ required: true, default: 'private' })
+  visibility: 'private' | 'party' | 'public';
+
+  @Prop({ required: true, default: 'Generic' })
+  system: 'Generic' | 'DnD5e' | 'Daggerheart' | 'PF2';
+
+  @Prop({ required: true })
+  title: string;
+
+  @Prop()
+  description: string;
+
+  @Prop({ type: [{type: mongoose.Schema.Types.ObjectId}], ref: 'Party', default: null })
+  parties: mongoose.Schema.Types.ObjectId[] | null;
+
+  @Prop({ type: Date, default: Date.now, required: true })
+  createdAt: Date;
+
+  @Prop({ type: Date, default: Date.now, required: true })
+  updatedAt: Date;
+}
+
+export const GameSchema = SchemaFactory.createForClass(Game);
