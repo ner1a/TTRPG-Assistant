@@ -1,4 +1,4 @@
-import type { Game, Character } from "../index.ts";
+import type { Game, Character } from '../index.ts';
 
 export interface User {
   _id: string;
