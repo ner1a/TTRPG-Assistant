@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer';
 import {
   IsNotEmpty,
   IsString,
@@ -22,6 +23,7 @@ export class CreateCharacterDto {
   class: string;
 
   @IsNumber()
+  @Type(() => Number)
   @IsOptional()
   level: number;
 

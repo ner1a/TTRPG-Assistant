@@ -11,7 +11,7 @@ import { CurrentUser, JwtUser } from '../auth/current-user.decorator';
 import { JwtAuthGuard } from 'src/auth/jwt.guard';
 
 @UseGuards(JwtAuthGuard)
-@Controller('char')
+@Controller('characters')
 export class CharacterController {
   constructor(private readonly characterService: CharacterService) {}
 
