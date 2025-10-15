@@ -52,7 +52,7 @@ export class AuthService {
       throw new UnauthorizedException('User not found');
     }
     if (user && (await bcrypt.compare(password, user.passwordHash))) {
-      const accessToken = await this.createAccessToken(user._id, user.username);
+      const accessToken = await this.createAccessToken(user._id);
       return { accessToken, user: toPublicUser(user) };
     }
     throw new UnauthorizedException('Wrong password');
@@ -61,9 +61,8 @@ export class AuthService {
   //access token create method
   private async createAccessToken(
     sub: ObjectId,
-    username: string,
   ): Promise<string> {
-    const payload = { sub, username };
+    const payload = { sub };
     const accessToken = await this.jwtService.signAsync(payload);
     return accessToken;
   }
