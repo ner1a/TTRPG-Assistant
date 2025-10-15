@@ -15,7 +15,4 @@ export class CreateUserDto {
   @IsNotEmpty( { message: 'Password should not be empty' })
   @Length(6, 100, { message: 'Password must be between 6 and 100 characters long' })
   password: string;
-
-  @IsString()
-  fullname?: string;
 }
