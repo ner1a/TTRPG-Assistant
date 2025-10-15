@@ -4,6 +4,7 @@ import {
   UseGuards,
   Body,
   UnauthorizedException,
+  Get,
 } from '@nestjs/common';
 import { CharacterService } from './character.service';
 import { CreateCharacterDto } from './dto/createCharacter.dto';
@@ -23,5 +24,11 @@ export class CharacterController {
     if (!user?.id) throw new UnauthorizedException('Missing auth context');
     const res = await this.characterService.create(createCharacterDto, user.id);
     return res;
+  }
+
+  @Get('mycharacters')
+  async mine(@CurrentUser() user: JwtUser) {
+    if (!user?.id) throw new UnauthorizedException('Missing auth context');
+    return this.characterService.findMine(user.id);
   }
 }

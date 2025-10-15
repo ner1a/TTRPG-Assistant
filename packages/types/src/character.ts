@@ -8,10 +8,11 @@ export interface Character {
   class?: string;
   level?: number;
   background?: string;
+  visibility: Visibility;
   createdAt: string;
   updatedAt: string;
-  visibility: Visibility;
 
+/* 
   // DND5E specific fields
   dndLevel?: number;
   dndRace?: string;
@@ -33,5 +34,5 @@ export interface Character {
   dhFinesse?: number;
   dhInstinct?: number;
   dhPresence?: number;
-  dhKnowledge?: number;
+  dhKnowledge?: number; */
 }
