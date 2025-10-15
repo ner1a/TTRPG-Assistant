@@ -4,7 +4,6 @@ import { ThrottlerModule } from '@nestjs/throttler';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
-import { CharacterService } from './character/character.service';
 import { CharacterModule } from './character/character.module';
 import { GameModule } from './game/game.module';
 import { PartyModule } from './party/party.module';
@@ -36,6 +35,6 @@ import { PartyModule } from './party/party.module';
     PartyModule
   ],
   
-  providers: [CharacterService],
+  providers: [],
 })
 export class AppModule {}
