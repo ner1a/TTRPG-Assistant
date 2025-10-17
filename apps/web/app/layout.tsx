@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
+import Header from '../components/header/header'
+
 export const metadata: Metadata = {
   title: 'TTRPG Assistant',
   description: 'A web application for managing tabletop RPG sessions',
@@ -14,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <Header />
+        <main  className='container m-auto'>
+          {children}
+        </main>
       </body>
     </html>
   );
