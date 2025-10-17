@@ -6,11 +6,16 @@ import { Model } from 'mongoose';
 
 @Injectable()
 export class GameService {
-  constructor(@InjectModel(Game.name) private characterModel: Model<Game>) {}
+  constructor(@InjectModel(Game.name) private gameModel: Model<Game>) {}
 
   async create(createGameDto: CreateGameDto, ownerId: string): Promise<{ok:boolean}>{
-    const newGame = new this.characterModel({...createGameDto, ownerId})
+    const newGame = new this.gameModel({...createGameDto, ownerId})
     await newGame.save();
     return {ok:true}
+  }
+
+  async findMyGames(ownerId: string):Promise<Game[]> {
+    const games = await this.gameModel.find({ownerId}).sort({ createdAt: -1 }).lean().exec()
+    return games;
   }
 }

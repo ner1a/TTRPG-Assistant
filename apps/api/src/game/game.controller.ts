@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   Post,
   UnauthorizedException,
   UseGuards,
@@ -22,6 +23,13 @@ export class GameController {
   ) {
     if (!user?.id) throw new UnauthorizedException('Missing auth context');
     const res = await this.gameService.create(createGameDto, user.id)
+    return res;
+  }
+
+  @Get()
+  async getMyGames(@CurrentUser() user: JwtUser) {
+    if (!user?.id) throw new UnauthorizedException('Missing auth context');
+    const res = await this.gameService.findMyGames(user.id)
     return res;
   }
 }
