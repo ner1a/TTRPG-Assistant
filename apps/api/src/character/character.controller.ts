@@ -26,7 +26,7 @@ export class CharacterController {
     return res;
   }
 
-  @Get('mycharacters')
+  @Get()
   async mine(@CurrentUser() user: JwtUser) {
     if (!user?.id) throw new UnauthorizedException('Missing auth context');
     return this.characterService.findMine(user.id);
