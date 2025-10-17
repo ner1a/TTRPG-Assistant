@@ -25,7 +25,7 @@ export class AuthController {
     @Body() dto: { email: string; password: string },
     @Res({ passthrough: true }) res: Response,
   ) {
-    const { accessToken, user } = await this.authService.login(
+    const { accessToken} = await this.authService.login(
       dto.email,
       dto.password,
     );
@@ -36,7 +36,7 @@ export class AuthController {
       path: '/',
       maxAge: 8 * 60 * 60 * 1000,
     });
-    return { user };
+    return { ok: true };
   }
 
   @Post('logout')
@@ -49,6 +49,6 @@ export class AuthController {
   @UseGuards(JwtAuthGuard) //User protected access
   async me(@CurrentUser() user: { id: string }) {
     const resUser = await this.usersService.findById(user.id);
-    return toPublicUser(resUser);
+    return {user: toPublicUser(resUser)};
   }
 }

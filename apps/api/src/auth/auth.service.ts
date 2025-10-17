@@ -46,14 +46,14 @@ export class AuthService {
   async login(
     email: string,
     password: string,
-  ): Promise<{ accessToken: string; user: PublicUser }> {
+  ): Promise<{ accessToken: string }> {
     const user = await this.userModel.findOne({ email });
     if (!user) {
       throw new UnauthorizedException('User not found');
     }
     if (user && (await bcrypt.compare(password, user.passwordHash))) {
       const accessToken = await this.createAccessToken(user._id);
-      return { accessToken, user: toPublicUser(user) };
+      return  {accessToken};
     }
     throw new UnauthorizedException('Wrong password');
   }
