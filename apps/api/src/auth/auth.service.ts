@@ -9,8 +9,6 @@ import { Model, ObjectId } from 'mongoose';
 import { User } from '../users/userSchema';
 import { CreateUserDto } from '../users/dto/createUser.dto';
 import * as bcrypt from 'bcrypt';
-import type { User as PublicUser } from '@repo/types';
-import { toPublicUser } from 'src/users/users.mapper';
 
 @Injectable()
 export class AuthService {
