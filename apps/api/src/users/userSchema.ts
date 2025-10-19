@@ -38,6 +38,9 @@ export class User {
     validUntil: Date | null;
   };
 
+  @Prop({ type: String, enum: ['user', 'admin'], default: 'user' })
+  userType: 'user' | 'admin';
+
   @Prop({ type: Date, default: Date.now, required: true })
   createdAt: Date;
 
