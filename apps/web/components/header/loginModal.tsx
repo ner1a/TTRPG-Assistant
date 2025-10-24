@@ -99,6 +99,7 @@ export default function LoginModal(props: {
               type="email"
               placeholder="Email"
               required
+              autoComplete='email'
               className="rounded-md border border-slate-700 bg-slate-950 px-3 py-2 placeholder-slate-500 outline-none ring-0 focus:border-slate-500"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
@@ -108,6 +109,7 @@ export default function LoginModal(props: {
               type="password"
               placeholder="Password"
               required
+              autoComplete='on'
               className="rounded-md border border-slate-700 bg-slate-950 px-3 py-2 placeholder-slate-500 outline-none ring-0 focus:border-slate-500"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
