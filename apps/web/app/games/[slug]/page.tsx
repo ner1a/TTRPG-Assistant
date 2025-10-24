@@ -1,8 +1,6 @@
 import { Game, Party } from '@repo/types';
 import { cookies } from 'next/headers';
 import styles from './gameDetails.module.css';
-import EditIcon from '../../../public/icons/EditIcon.svg';
-import Link from 'next/link';
 import PartyModel from '../../../components/partyModel';
 
 const API = process.env.NEXT_PUBLIC_API_URL;

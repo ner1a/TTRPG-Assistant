@@ -19,17 +19,17 @@ export default async function Header() {
           {user && (
             <>
             <li className='list-none'>
-              <Link href="/dashboard" className="border p-3 rounded-3xl title">
+              <Link href="/dashboard" className="border p-3 rounded-3xl text-slate-400 hover:text-slate-300 hover:bg-slate-950">
                 Dashboard
               </Link>
             </li>
             <li className='list-none'>
-              <Link href="/games" className="border p-3 rounded-3xl title">
+              <Link href="/games" className="border p-3 rounded-3xl text-slate-400 hover:text-slate-300 hover:bg-slate-950">
                 Games
               </Link>
             </li>
             <li className='list-none'>
-              <Link href="/characters" className="border p-3 rounded-3xl title">
+              <Link href="/characters" className="border p-3 rounded-3xl text-slate-400 hover:text-slate-300 hover:bg-slate-950">
                 Characters
               </Link>
             </li>
