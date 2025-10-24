@@ -198,7 +198,7 @@ pnpm --filter ./apps/web dev
 
 ## Roadmap
 - [x] CRUD for `games`, `characters`, `party`
-- [ ] `GET /users/:id` public profile
+- [x] `GET /users/:id` public profile
 - [ ] Refresh token (rotation + session management)
 - [ ] Roles/permissions (GM, player)
 - [ ] Tests (unit / e2e), seed scripts
