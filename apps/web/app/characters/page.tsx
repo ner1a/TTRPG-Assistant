@@ -1,9 +1,8 @@
 import { cookies } from 'next/headers';
-import ListItem from '../../components/listItem';
 import { Character } from '@repo/types';
 import { getUser } from '../../lib/auth';
 import { redirect } from 'next/navigation';
-import Link from 'next/link';
+import CharacterListModel from '../../components/characterListModel';
 
 const API = process.env.NEXT_PUBLIC_API_URL;
 
@@ -20,12 +19,10 @@ export default async function CharactersPage() {
   const data = await res.json();
   return (
       <>
-        <section className="m-auto flex justify-center flex-col items-center py-4">
+        <section className="m-auto flex flex-row w-full gap-2 justify-center flex-col items-center py-4">
           {res.ok && data.length > 0 ? (
             data.map((character: Character) => (
-              <Link href={"/characters/c?id=" + (character._id)} key={character._id} className='title'>
-                <ListItem>{character.name}</ListItem>
-              </Link>
+              <CharacterListModel key={character._id} characterId={character._id} />
             ))
           ) : (
             <h1>You have not any characters yet!</h1>
