@@ -46,7 +46,7 @@ export default function HeaderActions({ user }: { user: User | null }) {
           <button
             onClick={handleLogout}
             disabled={pending}
-            className="relative rounded-md border border-slate-700 px-3 py-1.5 text-slate-100 hover:bg-slate-900 disabled:opacity-60"
+            className="relative rounded-md border border-slate-700 px-3 py-1.5 text-slate-100 hover:bg-slate-900 disabled:opacity-60 disabled:text-slate-500 bg-slate-950"
           >
             Logout
             {err && (
@@ -60,13 +60,13 @@ export default function HeaderActions({ user }: { user: User | null }) {
         <>
           <button
             onClick={() => setOpenLogin(true)}
-            className="rounded-md border-0 border-slate-700 px-3 py-1.5 text-slate-100 hover:bg-slate-900"
+            className="rounded-md border border-slate-900 px-3 py-1.5 text-slate-100 hover:border hover:border-slate-700"
           >
             Login
           </button>
           <button
             onClick={() => setOpenRegister(true)}
-            className="rounded-md border border-slate-700 px-3 py-1.5 text-slate-100 hover:bg-slate-900"
+            className="rounded-md border border-slate-700 px-3 py-1.5 text-slate-100 hover:bg-slate-900 bg-slate-950"
           >
             Register
           </button>

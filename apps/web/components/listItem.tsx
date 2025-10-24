@@ -4,7 +4,7 @@ export default function ListItem({
   children: React.ReactNode;
 }>) {
   return (
-    <li className="w-[60vw] border rounded-lg border-white bg-slate-900 p-3 m-1">
+    <li className="w-[60vw] border rounded-lg p-3 m-1 list-item">
       {children}
     </li>
   );

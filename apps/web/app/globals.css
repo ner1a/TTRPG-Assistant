@@ -1,15 +1,26 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --foreground: #F6F7EB;
-  --color: #E94F37;
-  --background: #393E41;
+  --foreground: #f6f7eb;
+  --color: #e94f37;
+  --background: #393e41;
+  --slate-50: oklch(98.4% 0.003 247.858);
+  --slate-100: oklch(96.8% 0.007 247.896);
+  --slate-200: oklch(92.9% 0.013 255.508);
+  --slate-300: oklch(86.9% 0.022 252.894);
+  --slate-400: oklch(70.4% 0.04 256.788);
+  --slate-500: oklch(55.4% 0.046 257.417);
+  --slate-600: oklch(44.6% 0.043 257.281);
+  --slate-700: oklch(37.2% 0.044 257.287);
+  --slate-800: oklch(27.9% 0.041 260.031);
+  --slate-900: oklch(20.8% 0.042 265.755);
+  --slate-950: oklch(12.9% 0.042 264.695);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --foreground: #393E41;
-    --background: #F6F7EB;
+    --foreground: #393e41;
+    --background: #f6f7eb;
   }
 }
 
@@ -20,16 +31,24 @@ body {
 }
 
 body {
-  background: #929FA7;
-  background: linear-gradient(0deg, rgba(146, 159, 167, 1) 0%, rgba(57, 62, 65, 1) 30%, rgba(15, 15, 15, 1) 80%);
-  width: 100vw;
+  background: hsla(223, 48%, 11%, 1);
+
+  background: linear-gradient(
+    180deg,
+    hsla(223, 48%, 11%, 1) 0%,
+    hsla(223, 48%, 11%, 1) 20%,
+    hsla(218, 36%, 18%, 1) 100%
+  );
+
+  width: 100vw; /*Temporary*/
   height: 100vh; /*Temporary*/
 }
 
 .title {
-  color: #E94F37;
+  color: var(--slate-400);
+
   &a:hover {
-    color: #DA8C80;
+    color: var(--slate-200);
   }
 }
 
