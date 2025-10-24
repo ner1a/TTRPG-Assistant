@@ -1,0 +1,23 @@
+.gameDetailContainer {
+    background-color: rgba(255, 255, 255, 0.005);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: #F6F7EB;
+    background-color: var(--slate-800);
+}
+
+.gameName {
+    font-size: x-large;
+    font-weight: 600;
+    color: #E94F37;
+}
+
+.titles {
+    font-size: large;
+    font-weight: 600;
+    line-height: 2rem;
+    color: var(--slate-400);
+}
+
+.contents {
+    font-size: medium;
+}

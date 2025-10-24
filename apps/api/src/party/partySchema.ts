@@ -13,10 +13,9 @@ export class Party {
 
   @Prop({
     type: [{ type: mongoose.Schema.Types.ObjectId }],
-    ref: 'Character',
-    default: null,
+    ref: 'Character'
   })
-  characters: mongoose.Schema.Types.ObjectId[] | null;
+  characters: mongoose.Schema.Types.ObjectId[];
 
   @Prop()
   description: string;

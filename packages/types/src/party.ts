@@ -1,9 +1,10 @@
-import type { User } from "../index.ts";
+import type { Character } from "../index.ts";
 
 export interface Party {
   _id: string;
+  ownerId:string;
   name: string;
-  members: User['_id'][];
+  characters?: Character['_id'][];
   description?: string;
   createdAt: string;
   updatedAt: string;

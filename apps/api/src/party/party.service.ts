@@ -16,4 +16,8 @@ export class PartyService {
     await newParty.save();
     return { ok: true };
   }
+
+  async findById(id:string): Promise<Party> {
+    return await this.partyModel.findById(id);
+  }
 }

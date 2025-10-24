@@ -8,6 +8,8 @@ export interface Character {
   class?: string;
   level?: number;
   background?: string;
+  story?: string;
+  origin?: string;
   visibility: Visibility;
   createdAt: string;
   updatedAt: string;

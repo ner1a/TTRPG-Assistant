@@ -27,4 +27,8 @@ export class CharacterService {
       .lean()
       .exec();
   }
+
+  async findById(id: string): Promise<Character> {
+    return await this.characterModel.findById(id);
+  }
 }

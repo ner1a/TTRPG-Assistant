@@ -1,6 +1,8 @@
 import {
   Body,
   Controller,
+  Get,
+  Param,
   Post,
   UnauthorizedException,
   UseGuards,
@@ -23,5 +25,10 @@ export class PartyController {
     if (!user?.id) throw new UnauthorizedException('Missing auth context');
     const res = await this.partyService.create(createPartyDto, user.id);
     return res;
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string) {
+    return await this.partyService.findById(id);
   }
 }

@@ -17,7 +17,7 @@ export class CreatePartyDto {
   @IsOptional()
   @IsString()
   @MaxLength(2000, {
-    message: 'Game description must be up to 2000 characters long',
+    message: 'Party description must be up to 2000 characters long',
   })
   description: string;
 }

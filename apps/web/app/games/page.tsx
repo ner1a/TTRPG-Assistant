@@ -24,7 +24,7 @@ export default async function GamesPage() {
       <section className="m-auto flex justify-center flex-col items-center py-4">
         {res.ok && data.length > 0 ? (
           data.map((game: Game) => (
-            <Link href={'/games/' + game.title} key={game._id}>
+            <Link href={'/games/' + encodeURIComponent(game.title) + '?id=' + (encodeURIComponent(game._id))} key={game._id} className='title'>
               <ListItem>{game.title}</ListItem>
             </Link>
           ))

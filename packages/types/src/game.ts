@@ -7,8 +7,7 @@ export interface Game {
   system: "Generic" | "DND5E" | "Daggerheart" | "PF2";
   title: string;
   description?: string;
-  partyId?: Party['_id'];
-  characters?: Character['_id'][];
+  parties?: Party['_id'][];
   createdAt: string;
   updatedAt: string;
 }

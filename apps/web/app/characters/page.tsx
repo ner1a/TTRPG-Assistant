@@ -18,13 +18,12 @@ export default async function CharactersPage() {
     cache: 'no-store',
   });
   const data = await res.json();
-  console.log(data)
   return (
       <>
         <section className="m-auto flex justify-center flex-col items-center py-4">
           {res.ok && data.length > 0 ? (
             data.map((character: Character) => (
-              <Link href={"/characters/" + (character.name)} key={character._id}>
+              <Link href={"/characters/c?id=" + (character._id)} key={character._id} className='title'>
                 <ListItem>{character.name}</ListItem>
               </Link>
             ))

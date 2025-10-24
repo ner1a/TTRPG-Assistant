@@ -20,8 +20,8 @@ export class Game {
   @Prop()
   description: string;
 
-  @Prop({ type: [{type: mongoose.Schema.Types.ObjectId}], ref: 'Party', default: null })
-  parties: mongoose.Schema.Types.ObjectId[] | null;
+  @Prop({ type: [{type: mongoose.Schema.Types.ObjectId}], ref: 'Party'})
+  parties: mongoose.Schema.Types.ObjectId[];
 
   @Prop({ type: Date, default: Date.now, required: true })
   createdAt: Date;

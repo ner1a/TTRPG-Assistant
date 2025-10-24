@@ -18,4 +18,8 @@ export class GameService {
     const games = await this.gameModel.find({ownerId}).sort({ createdAt: -1 }).lean().exec()
     return games;
   }
+
+  async findById(id:string): Promise<Game> {
+    return await this.gameModel.findById(id);
+  }
 }

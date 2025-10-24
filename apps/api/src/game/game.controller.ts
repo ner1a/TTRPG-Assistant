@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  Param,
   Post,
   UnauthorizedException,
   UseGuards,
@@ -31,5 +32,10 @@ export class GameController {
     if (!user?.id) throw new UnauthorizedException('Missing auth context');
     const res = await this.gameService.findMyGames(user.id)
     return res;
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id:string) {
+    return await this.gameService.findById(id);
   }
 }

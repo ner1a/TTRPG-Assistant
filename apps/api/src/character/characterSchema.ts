@@ -20,6 +20,12 @@ export class Character {
   @Prop()
   background: string;
 
+  @Prop()
+  story: string;
+
+  @Prop()
+  origin: string;
+
   @Prop({required: true, default:'private'})
   visibility: 'private' | 'party' | 'public';
 
